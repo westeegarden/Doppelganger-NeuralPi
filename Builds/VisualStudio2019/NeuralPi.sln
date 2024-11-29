@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 16
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralPi - Standalone Plugin", "NeuralPi_StandalonePlugin.vcxproj", "{7FCFE070-024C-B44F-1C8B-F19D416AE433}"
+	ProjectSection(ProjectDependencies) = postProject
+		{790DD272-846A-5923-25B5-23184048AD83} = {790DD272-846A-5923-25B5-23184048AD83}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralPi - VST3", "NeuralPi_VST3.vcxproj", "{9D65A6C3-268D-0B19-C3B1-F52F1DCFB2F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{790DD272-846A-5923-25B5-23184048AD83} = {790DD272-846A-5923-25B5-23184048AD83}
+		{31ACEB10-C599-3197-625B-B340E9EC9105} = {31ACEB10-C599-3197-625B-B340E9EC9105}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralPi - Shared Code", "NeuralPi_SharedCode.vcxproj", "{790DD272-846A-5923-25B5-23184048AD83}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralPi - VST3 Manifest Helper", "NeuralPi_VST3ManifestHelper.vcxproj", "{31ACEB10-C599-3197-625B-B340E9EC9105}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D65A6C3-268D-0B19-C3B1-F52F1DCFB2F0}.Debug|x64.ActiveCfg = Debug|x64
+		{9D65A6C3-268D-0B19-C3B1-F52F1DCFB2F0}.Debug|x64.Build.0 = Debug|x64
+		{9D65A6C3-268D-0B19-C3B1-F52F1DCFB2F0}.Release|x64.ActiveCfg = Release|x64
+		{9D65A6C3-268D-0B19-C3B1-F52F1DCFB2F0}.Release|x64.Build.0 = Release|x64
+		{7FCFE070-024C-B44F-1C8B-F19D416AE433}.Debug|x64.ActiveCfg = Debug|x64
+		{7FCFE070-024C-B44F-1C8B-F19D416AE433}.Debug|x64.Build.0 = Debug|x64
+		{7FCFE070-024C-B44F-1C8B-F19D416AE433}.Release|x64.ActiveCfg = Release|x64
+		{7FCFE070-024C-B44F-1C8B-F19D416AE433}.Release|x64.Build.0 = Release|x64
+		{790DD272-846A-5923-25B5-23184048AD83}.Debug|x64.ActiveCfg = Debug|x64
+		{790DD272-846A-5923-25B5-23184048AD83}.Debug|x64.Build.0 = Debug|x64
+		{790DD272-846A-5923-25B5-23184048AD83}.Release|x64.ActiveCfg = Release|x64
+		{790DD272-846A-5923-25B5-23184048AD83}.Release|x64.Build.0 = Release|x64
+		{31ACEB10-C599-3197-625B-B340E9EC9105}.Debug|x64.ActiveCfg = Debug|x64
+		{31ACEB10-C599-3197-625B-B340E9EC9105}.Debug|x64.Build.0 = Debug|x64
+		{31ACEB10-C599-3197-625B-B340E9EC9105}.Release|x64.ActiveCfg = Release|x64
+		{31ACEB10-C599-3197-625B-B340E9EC9105}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

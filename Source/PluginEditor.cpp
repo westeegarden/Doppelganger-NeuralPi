@@ -15,16 +15,16 @@
 #include <fstream>
 #include <iostream>
 
-
 //==============================================================================
 NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to
+    setLookAndFeel(&PiPedalLookAndFeel);
 
-    blueLookAndFeel.setColour(juce::Slider::thumbColourId, juce::Colours::aqua);
-    redLookAndFeel.setColour(juce::Slider::thumbColourId, juce::Colours::red);
+    // Connected light
+
 
     //addAndMakeVisible(modelKnob);
     //ampGainKnob.setLookAndFeel(&ampSilverKnobLAF);
@@ -79,7 +79,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     modelSelect.setScrollWheelEnabled(true);
 
     addAndMakeVisible(loadButton);
-    loadButton.setButtonText("Import Tone");
+    loadButton.setButtonText("Import");
     loadButton.setColour(juce::Label::textColourId, juce::Colours::black);
     loadButton.addListener(this);
 
@@ -124,7 +124,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
         }
     };
 
-    addAndMakeVisible(irSelect);
+    //addAndMakeVisible(irSelect);
     irSelect.setColour(juce::Label::textColourId, juce::Colours::black);
     int i = 1;
     for (const auto& jsonFile : processor.irFiles) {
@@ -135,7 +135,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     irSelect.setSelectedItemIndex(processor.current_ir_index, juce::NotificationType::dontSendNotification);
     irSelect.setScrollWheelEnabled(true);
 
-    addAndMakeVisible(loadIR);
+    //addAndMakeVisible(loadIR);
     loadIR.setButtonText("Import IR");
     loadIR.setColour(juce::Label::textColourId, juce::Colours::black);
     loadIR.addListener(this);
@@ -152,7 +152,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
   
 
     addAndMakeVisible(ampGainKnob);
-    ampGainKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampGainKnob.setLookAndFeel(&blueLookAndFeel);
     ampGainKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampGainKnob.setNumDecimalPlacesToDisplay(1);
     ampGainKnob.addListener(this);
@@ -191,7 +191,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampMasterKnob);
-    ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
     ampMasterKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampMasterKnob.setNumDecimalPlacesToDisplay(1);
     ampMasterKnob.addListener(this);
@@ -233,7 +233,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
 
 
     addAndMakeVisible(ampBassKnob);
-    ampBassKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampBassKnob.setLookAndFeel(&blueLookAndFeel);
     ampBassKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampBassKnob.setNumDecimalPlacesToDisplay(1);
     ampBassKnob.addListener(this);
@@ -272,7 +272,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampMidKnob);
-    ampMidKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampMidKnob.setLookAndFeel(&blueLookAndFeel);
     ampMidKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampMidKnob.setNumDecimalPlacesToDisplay(1);
     ampMidKnob.addListener(this);
@@ -311,7 +311,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampTrebleKnob);
-    ampTrebleKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampTrebleKnob.setLookAndFeel(&blueLookAndFeel);
     ampTrebleKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampTrebleKnob.setNumDecimalPlacesToDisplay(1);
     ampTrebleKnob.addListener(this);
@@ -350,7 +350,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampPresenceKnob);
-    ampPresenceKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampPresenceKnob.setLookAndFeel(&blueLookAndFeel);
     ampPresenceKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampPresenceKnob.setNumDecimalPlacesToDisplay(1);
     ampPresenceKnob.addListener(this);
@@ -389,7 +389,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampDelayKnob);
-    ampDelayKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampDelayKnob.setLookAndFeel(&blueLookAndFeel);
     ampDelayKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampDelayKnob.setNumDecimalPlacesToDisplay(1);
     ampDelayKnob.addListener(this);
@@ -428,7 +428,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(ampReverbKnob);
-    ampReverbKnob.setLookAndFeel(&blueLookAndFeel);
+    //ampReverbKnob.setLookAndFeel(&blueLookAndFeel);
     ampReverbKnob.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxBelow, false, 50, 20);
     ampReverbKnob.setNumDecimalPlacesToDisplay(1);
     ampReverbKnob.addListener(this);
@@ -467,39 +467,49 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     };
 
     addAndMakeVisible(GainLabel);
-    GainLabel.setText("Gain", juce::NotificationType::dontSendNotification);
+    GainLabel.setText("GAIN", juce::NotificationType::dontSendNotification);
     GainLabel.setJustificationType(juce::Justification::centred);
+    GainLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
+
     addAndMakeVisible(LevelLabel);
-    LevelLabel.setText("Level", juce::NotificationType::dontSendNotification);
+    LevelLabel.setText("LEVEL", juce::NotificationType::dontSendNotification);
     LevelLabel.setJustificationType(juce::Justification::centred);
+    LevelLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(BassLabel);
-    BassLabel.setText("Bass", juce::NotificationType::dontSendNotification);
+    BassLabel.setText("BASS", juce::NotificationType::dontSendNotification);
     BassLabel.setJustificationType(juce::Justification::centred);
+    BassLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(MidLabel);
-    MidLabel.setText("Mid", juce::NotificationType::dontSendNotification);
+    MidLabel.setText("MID", juce::NotificationType::dontSendNotification);
     MidLabel.setJustificationType(juce::Justification::centred);
+    MidLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(TrebleLabel);
-    TrebleLabel.setText("Treble", juce::NotificationType::dontSendNotification);
+    TrebleLabel.setText("TREBLE", juce::NotificationType::dontSendNotification);
     TrebleLabel.setJustificationType(juce::Justification::centred);
+    TrebleLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(PresenceLabel);
-    PresenceLabel.setText("Presence", juce::NotificationType::dontSendNotification);
+    PresenceLabel.setText("PRESENCE", juce::NotificationType::dontSendNotification);
     PresenceLabel.setJustificationType(juce::Justification::centred);
+    PresenceLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(DelayLabel);
-    DelayLabel.setText("Delay", juce::NotificationType::dontSendNotification);
+    DelayLabel.setText("DELAY", juce::NotificationType::dontSendNotification);
     DelayLabel.setJustificationType(juce::Justification::centred);
+    DelayLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(ReverbLabel);
-    ReverbLabel.setText("Reverb", juce::NotificationType::dontSendNotification);
+    ReverbLabel.setText("REVERB", juce::NotificationType::dontSendNotification);
     ReverbLabel.setJustificationType(juce::Justification::centred);
+    ReverbLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(toneDropDownLabel);
-    toneDropDownLabel.setText("Tone", juce::NotificationType::dontSendNotification);
+    toneDropDownLabel.setText("TONE", juce::NotificationType::dontSendNotification);
     toneDropDownLabel.setJustificationType(juce::Justification::centred);
+    toneDropDownLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
 
     addAndMakeVisible(irDropDownLabel);
     irDropDownLabel.setText("IR", juce::NotificationType::dontSendNotification);
@@ -509,9 +519,7 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     versionLabel.setText("v1.3.0", juce::NotificationType::dontSendNotification);
     versionLabel.setJustificationType(juce::Justification::centred);
 
-    auto font = GainLabel.getFont();
-    float height = font.getHeight();
-    font.setHeight(height); // 0.75);
+    juce::Font font("Arial Black", 17.0f, juce::Font::plain); // 0.75);
     GainLabel.setFont(font);
     LevelLabel.setFont(font);
     BassLabel.setFont(font);
@@ -530,21 +538,34 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     ampNameField.setEditable(true, true, true);
     addAndMakeVisible(ampNameField);
 
-    // IP controls:
+    //IP controls :
     ipField.setEditable(true, true, true);
     addAndMakeVisible(ipLabel);
+    ipLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
+    ipLabel.setFont(font);
     addAndMakeVisible(ipField);
 
-    // Port controls:
+    //Port controls :
     addAndMakeVisible(outPortNumberLabel);
+    outPortNumberLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
+    outPortNumberLabel.setFont(font);
     outPortNumberField.setEditable(true, true, true);
     addAndMakeVisible(outPortNumberField);
     addAndMakeVisible(outConnectedLabel);
 
     addAndMakeVisible(inPortNumberLabel);
+    inPortNumberLabel.setColour(juce::Label::textColourId, juce::Colours::grey.withBrightness(0.7));
+    inPortNumberLabel.setFont(font);
     inPortNumberField.setEditable(true, true, true);
     addAndMakeVisible(inPortNumberField);
     addAndMakeVisible(inConnectedLabel);
+
+    // Connection light
+
+    addAndMakeVisible(piConnect);
+    piConnect.setClickingTogglesState(false);
+    //piConnect.setToggleState(oscSender.)
+
 
 
     // OSC messaging
@@ -570,10 +591,10 @@ NeuralPiAudioProcessorEditor::NeuralPiAudioProcessorEditor (NeuralPiAudioProcess
     connectSender();
 
     // Size of plugin GUI
-    setSize(345, 455);
+    setSize(400, 515);
 
     // Set gain knob color based on conditioned/snapshot model 
-    setParamKnobColor();
+    //setParamKnobColor();
 }
 
 NeuralPiAudioProcessorEditor::~NeuralPiAudioProcessorEditor()
@@ -584,66 +605,190 @@ NeuralPiAudioProcessorEditor::~NeuralPiAudioProcessorEditor()
 void NeuralPiAudioProcessorEditor::paint (Graphics& g)
 {
     // Workaround for graphics on Windows builds (clipping code doesn't work correctly on Windows)
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-    g.drawImageAt(background, 0, 0);  // Debug Line: Redraw entire background image
-#else
-// Redraw only the clipped part of the background image
-    juce::Rectangle<int> ClipRect = g.getClipBounds();
-    g.drawImage(background, ClipRect.getX(), ClipRect.getY(), ClipRect.getWidth(), ClipRect.getHeight(), ClipRect.getX(), ClipRect.getY(), ClipRect.getWidth(), ClipRect.getHeight());
-#endif
-   
+    g.fillAll(juce::Colours::black); 
+
+    //Create Bounds rectangle for refrence
+    juce::Rectangle<int> border = getLocalBounds();
+    juce::Rectangle<int> bounds = border.reduced(10);
+
+    //creating shading for background
+    g.setColour(juce::Colours::steelblue.withBrightness(0.3));
+    g.fillRoundedRectangle(bounds.getX() - 5, bounds.getY() - 5, bounds.getWidth() + 10, bounds.getHeight() + 10, 10);
+    g.setColour(juce::Colours::steelblue.withBrightness(0.4));
+    g.fillRoundedRectangle(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight(), 10);
+
+    //Doppelganger logo
+    g.setOpacity(1.0);
+    g.drawImageWithin(logo, bounds.getX()+92, bounds.getY()+140, 200, 70, juce::RectanglePlacement::centred, false);
+
+    //Visual Knob bounds
+    juce::Rectangle<float> knobsBounds1(bounds.getX() + 10, bounds.getY() + (bounds.getHeight() / 4) - 10, bounds.getWidth() - 20, (bounds.getHeight() / 4) - 5);
+    juce::Rectangle<float> knobsBounds2(bounds.getX() + 10, knobsBounds1.getY() + knobsBounds1.getHeight() + 5, bounds.getWidth() - 20, (bounds.getHeight() / 4) - 5);
+    juce::Rectangle<float> knobsBounds3(bounds.getX() + 10, knobsBounds2.getY() + knobsBounds2.getHeight() + 5, bounds.getWidth() - 20, (bounds.getHeight() / 4) - 5);
+
+    g.setColour(juce::Colours::steelblue.withBrightness(0.1));
+    g.drawRoundedRectangle(knobsBounds1.reduced(10), 15, 2);
+    g.drawRoundedRectangle(knobsBounds2.reduced(10), 15, 2);
+    g.drawRoundedRectangle(knobsBounds3.reduced(10), 15, 2);
+
+    //Value Display Boxes ------------
+    g.setColour(juce::Colours::black);
+
+    //IP
+    juce::Rectangle<int> ipScreen(bounds.getX() + (bounds.getWidth() / 4) - 50, bounds.getY() + 55, 75, 15);
+    g.fillRect(ipScreen);
+
+    //OSC Out
+    juce::Rectangle<int> oscOutScreen(bounds.getX() + (bounds.getWidth() / 2) - 37, modelSelect.getY() + 45, 55, 15);
+    g.fillRect(oscOutScreen);
+
+    //OSC In
+    juce::Rectangle<int> oscInScreen(bounds.getX() + ((bounds.getWidth() / 4) * 3) - 37, modelSelect.getY() + 45, 55, 15);
+    g.fillRect(oscInScreen);
+
+    //Knobs-----------------------------
+    juce::Rectangle<int> knobScreens[8];
+    juce::Slider* sliderRefs[8];
+
+    //Filling sliderRefs
+    sliderRefs[0] = &ampGainKnob;
+    sliderRefs[1] = &ampMasterKnob;
+    sliderRefs[2] = &ampBassKnob;
+    sliderRefs[3] = &ampMidKnob;
+    sliderRefs[4] = &ampTrebleKnob;
+    sliderRefs[5] = &ampDelayKnob;
+    sliderRefs[6] = &ampReverbKnob;
+    sliderRefs[7] = &ampPresenceKnob;
+
+    //Screen rectangles
+    juce::Rectangle<int> gainScreen;
+    knobScreens[0] = gainScreen;
+    juce::Rectangle<int> masterScreen;
+    knobScreens[1] = masterScreen;
+    juce::Rectangle<int> bassScreen;
+    knobScreens[2] = bassScreen;
+    juce::Rectangle<int> midScreen;
+    knobScreens[3] = midScreen;
+    juce::Rectangle<int> trebleScreen;
+    knobScreens[4] = trebleScreen;
+    juce::Rectangle<int> delayScreen;
+    knobScreens[5] = delayScreen;
+    juce::Rectangle<int> reverbScreen;
+    knobScreens[6] = reverbScreen;
+    juce::Rectangle<int> presenceScreen;
+    knobScreens[7] = presenceScreen;
+
+    //Drawing knob screens
+    for (int i = 0; i < 8; i++) {
+        knobScreens[i].setBounds(sliderRefs[i]->getX() + 39, sliderRefs[i]->getY() + 104, sliderRefs[i]->getTextBoxWidth() - 2, sliderRefs[i]->getTextBoxHeight() - 2);
+        g.fillRect(knobScreens[i]);
+    }
+
+    //Drawing Label backings
+    juce::Rectangle<int> labelBacks[8];
+
+    //Filling label backing array
+    juce::Rectangle<int> gainLabelBack;
+    labelBacks[0] = gainLabelBack;
+    juce::Rectangle<int> masterLabelBack;
+    labelBacks[1] = masterLabelBack;
+    juce::Rectangle<int> bassLabelBack;
+    labelBacks[2] = bassLabelBack;
+    juce::Rectangle<int> midLabelBack;
+    labelBacks[3] = midLabelBack;
+    juce::Rectangle<int> trebleLabelBack;
+    labelBacks[4] = trebleLabelBack;
+    juce::Rectangle<int> delayLabelBack;
+    labelBacks[5] = delayLabelBack;
+    juce::Rectangle<int> reverbLabelBack;
+    labelBacks[6] = reverbLabelBack;
+    juce::Rectangle<int> presenceLabelBack;
+    labelBacks[7] = presenceLabelBack;
+
+    //Drawing backings
+    for (int i = 0; i < 8; i++) {
+        labelBacks[i].setBounds(sliderRefs[i]->getX() + 27, sliderRefs[i]->getY() + 7, sliderRefs[i]->getTextBoxWidth() + 26, sliderRefs[i]->getTextBoxHeight() - 3);
+        g.setColour(juce::Colours::steelblue.withBrightness(0.4));
+        g.fillRect(labelBacks[i]);
+        g.setColour(juce::Colours::steelblue.withBrightness(0.1));
+        g.drawRoundedRectangle(labelBacks[i].toFloat(), 3, 2);
+    }
 }
 
 void NeuralPiAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
-    modelSelect.setBounds(11, 10, 270, 25);
-    loadButton.setBounds(11, 74, 100, 25);
+
+    const float margin = 20;
+
+    juce::Rectangle<int> bounds = getLocalBounds().reduced(10);
+    juce::Rectangle<int> knobsBounds1(bounds.getX(), bounds.getY() + (bounds.getHeight() / 4) - 15, bounds.getWidth(), (bounds.getHeight() / 4) - 10);
+    juce::Rectangle<int> knobsBounds2(bounds.getX(), knobsBounds1.getY() + knobsBounds1.getHeight() + 10, bounds.getWidth(), bounds.getHeight() / 4);
+    juce::Rectangle<int> knobsBounds3(bounds.getX(), knobsBounds2.getY() + knobsBounds2.getHeight(), bounds.getWidth(), bounds.getHeight() / 4);
+    juce::Rectangle<int> comboBoxBounds(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight() / 4);
+
+    // Connection light
+    piConnect.setBounds(bounds.getX() + 325, bounds.getY() + 60, 20, 20);
+
+    //Model Select Widgets
+    toneDropDownLabel.setBounds(bounds.getX() - 5, bounds.getY() + 10, 60, 20);
+    modelSelect.setBounds(bounds.getX() + 50, toneDropDownLabel.getY(), bounds.getWidth() - 120, 25);
+    loadButton.setBounds(modelSelect.getX() + modelSelect.getWidth() + 5, modelSelect.getY(), 60, 25);
     modelKnob.setBounds(140, 40, 75, 95);
 
-    irSelect.setBounds(11, 42, 270, 25);
-    loadIR.setBounds(120, 74, 100, 25);
-    irButton.setBounds(248, 42, 257, 25);
+    //irDropDownLabel.setBounds(bounds.getX() + 10, modelSelect.getY() + 30, 80, 20);
+    //irSelect.setBounds(bounds.getX() + 5, irDropDownLabel.getY() + 25, bounds.getWidth() / 4, 25);
+    //irButton.setBounds(248, 42, 257, 25);
     lstmButton.setBounds(248, 10, 257, 25);
 
     // Amp Widgets
-    ampGainKnob.setBounds(10, 120, 75, 95);
-    ampMasterKnob.setBounds(95, 120, 75, 95);
-    ampBassKnob.setBounds(10, 250, 75, 95);
-    ampMidKnob.setBounds(95, 250, 75, 95);
-    ampTrebleKnob.setBounds(180, 250, 75, 95);
-    ampPresenceKnob.setBounds(265, 250, 75, 95);
+    //=====================
 
-    ampDelayKnob.setBounds(180, 120, 75, 95);
-    ampReverbKnob.setBounds(265, 120, 75, 95);
+    //Gain and Volume
+    ampGainKnob.setBounds(knobsBounds2.getX() + 20, knobsBounds1.getY(), knobsBounds2.getWidth() / 3, knobsBounds2.getHeight());
+    ampMasterKnob.setBounds(knobsBounds2.getX() + ((knobsBounds1.getWidth() / 3) * 2) - 20, knobsBounds1.getY(), knobsBounds2.getWidth() / 3, knobsBounds2.getHeight());
 
-    GainLabel.setBounds(6, 108, 80, 10);
-    LevelLabel.setBounds(93, 108, 80, 10);
-    BassLabel.setBounds(6, 238, 80, 10);
-    MidLabel.setBounds(91, 238, 80, 10);
-    TrebleLabel.setBounds(178, 238, 80, 10);
-    PresenceLabel.setBounds(265, 238, 80, 10);
-    DelayLabel.setBounds(178, 108, 80, 10);
-    ReverbLabel.setBounds(265, 108, 80, 10);
+    //EQ
+    ampBassKnob.setBounds(knobsBounds2.getX() + 20, knobsBounds2.getY(), knobsBounds2.getWidth() / 3, knobsBounds2.getHeight());
+    ampMidKnob.setBounds(knobsBounds2.getX() + (knobsBounds2.getWidth() / 3), knobsBounds2.getY(), knobsBounds1.getWidth() / 3, knobsBounds2.getHeight());
+    ampTrebleKnob.setBounds(knobsBounds2.getX() + ((knobsBounds1.getWidth() / 3) * 2) - 20, knobsBounds2.getY(), knobsBounds1.getWidth() / 3, knobsBounds2.getHeight());
 
-    toneDropDownLabel.setBounds(267, 16, 80, 10);
-    irDropDownLabel.setBounds(261, 48, 80, 10);
-    versionLabel.setBounds(268, 431, 80, 10);
+    //Spacial effects
+    ampDelayKnob.setBounds(knobsBounds3.getX() + 20, knobsBounds3.getY(), knobsBounds2.getWidth() / 3, knobsBounds2.getHeight());
+    ampReverbKnob.setBounds(knobsBounds3.getX() + (knobsBounds2.getWidth() / 3), knobsBounds3.getY(), knobsBounds1.getWidth() / 3, knobsBounds2.getHeight());
+    ampPresenceKnob.setBounds(knobsBounds3.getX() + ((knobsBounds1.getWidth() / 3) * 2) - 20, knobsBounds3.getY(), knobsBounds1.getWidth() / 3, knobsBounds2.getHeight());
+
+    //Labels
+    //======================
+
+    //Gain and Volume
+    GainLabel.setBounds(ampGainKnob.getX() + 25, knobsBounds1.getY() + 10, 80, 10);
+    LevelLabel.setBounds(ampMasterKnob.getX() + 25, knobsBounds1.getY() + 10, 80, 10);
+
+    //EQ
+    BassLabel.setBounds(ampBassKnob.getX() + 25, knobsBounds2.getY() + 10, 80, 10);
+    MidLabel.setBounds(ampMidKnob.getX() + 25, knobsBounds2.getY() + 10, 80, 10);
+    TrebleLabel.setBounds(ampTrebleKnob.getX() + 25, knobsBounds2.getY() + 10, 80, 10);
+
+    //Spacial Effects
+    DelayLabel.setBounds(ampDelayKnob.getX() + 25, knobsBounds3.getY() + 10, 80, 10);
+    ReverbLabel.setBounds(ampReverbKnob.getX() + 25, knobsBounds3.getY() + 10, 80, 10);
+    PresenceLabel.setBounds(ampPresenceKnob.getX() + 25, knobsBounds3.getY() + 10, 80, 10);
 
     addAndMakeVisible(ampNameLabel);
     ampNameField.setEditable(true, true, true);
     addAndMakeVisible(ampNameField);
 
     // IP controls:
-    ipField.setBounds(150, 365, 100, 25);
-    ipLabel.setBounds(15, 365, 150, 25);
+    ipField.setBounds(bounds.getX() + (bounds.getWidth() / 4) - 50, modelSelect.getY() + 45, 75, 15);
+    ipLabel.setBounds(bounds.getX() + (bounds.getWidth() / 4) - 25, ipField.getY() + 25, 30, 10);
 
     // Port controls:
-    outPortNumberLabel.setBounds(15, 395, 150, 25);
-    outPortNumberField.setBounds(160, 395, 75, 25);
-    inPortNumberLabel.setBounds(15, 425, 150, 25);
-    inPortNumberField.setBounds(160, 425, 75, 25);
+    outPortNumberField.setBounds(bounds.getX() + (bounds.getWidth() / 2) - 37, modelSelect.getY() + 45, 55, 15);
+    outPortNumberLabel.setBounds(bounds.getX() + (bounds.getWidth() / 2) - 45, ipLabel.getY(), 150, 10);
+    inPortNumberField.setBounds(bounds.getX() + ((bounds.getWidth() / 4) * 3) - 37, modelSelect.getY() + 45, 55, 15);
+    inPortNumberLabel.setBounds(bounds.getX() + ((bounds.getWidth() / 4) * 3) - 40, ipLabel.getY(), 150, 10);
 }
 
 void NeuralPiAudioProcessorEditor::modelSelectChanged()
@@ -883,11 +1028,11 @@ void NeuralPiAudioProcessorEditor::connectSender()
     // specify here where to send OSC messages to: host URL and UDP port number
     if (!oscSender.connect(outgoingIP, outgoingPort))
     {
-        updateOutConnectedLabel(false);
+        piConnect.setToggleState(true, dontSendNotification);
     }
     else
     {
-        updateOutConnectedLabel(true);
+        piConnect.setToggleState(false, dontSendNotification);
     }
 }
 
@@ -1093,16 +1238,16 @@ void NeuralPiAudioProcessorEditor::setParamKnobColor()
 {
     // If the knob is used for a parameter, change it to red
     if (processor.params == 0) {
-        ampGainKnob.setLookAndFeel(&blueLookAndFeel);
-        ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
+        //ampGainKnob.setLookAndFeel(&blueLookAndFeel);
+        //ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
     }
     else if (processor.params == 1) {
-        ampGainKnob.setLookAndFeel(&redLookAndFeel);
-        ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
+        //ampGainKnob.setLookAndFeel(&redLookAndFeel);
+        //ampMasterKnob.setLookAndFeel(&blueLookAndFeel);
     }
     else if (processor.params == 2) {
-        ampGainKnob.setLookAndFeel(&redLookAndFeel);
-        ampMasterKnob.setLookAndFeel(&redLookAndFeel);
+        //ampGainKnob.setLookAndFeel(&redLookAndFeel);
+        //ampMasterKnob.setLookAndFeel(&redLookAndFeel);
     }
 
 }

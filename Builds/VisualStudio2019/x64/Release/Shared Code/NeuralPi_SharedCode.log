@@ -1,0 +1,52 @@
+﻿  Eq4Band.cpp
+  PluginEditor.cpp
+  PluginProcessor.cpp
+  RTNeuralLSTM.cpp
+  BinaryData.cpp
+  include_juce_audio_basics.cpp
+  include_juce_audio_devices.cpp
+  include_juce_audio_formats.cpp
+  include_juce_audio_plugin_client_ARA.cpp
+  include_juce_audio_processors_ara.cpp
+  include_juce_audio_processors_lv2_libs.cpp
+  include_juce_audio_utils.cpp
+  include_juce_core_CompilationTime.cpp
+  include_juce_data_structures.cpp
+  include_juce_dsp.cpp
+  include_juce_events.cpp
+  include_juce_graphics_Harfbuzz.cpp
+  include_juce_gui_extra.cpp
+  include_juce_osc.cpp
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\RTNeuralLSTM.h(3,10): error C1083: Cannot open include file: 'RTNeural/RTNeural.h': No such file or directory
+  (compiling source file '../../Source/RTNeuralLSTM.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\PluginProcessor.h(11,10): error C1083: Cannot open include file: 'nlohmann/json.hpp': No such file or directory
+  (compiling source file '../../Source/PluginProcessor.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\PluginProcessor.h(11,10): error C1083: Cannot open include file: 'nlohmann/json.hpp': No such file or directory
+  (compiling source file '../../Source/PluginEditor.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.h(26,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '../../Source/Eq4Band.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.h(27,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '../../Source/Eq4Band.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.h(36,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '../../Source/Eq4Band.cpp')
+  
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(19,47): warning C4100: 'numInputChannels': unreferenced formal parameter
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(17,49): warning C4100: 'midiMessages': unreferenced formal parameter
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(48,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(50,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(51,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(54,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(55,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(58,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(59,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(65,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(66,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(69,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(70,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(73,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\weste\OneDrive\Desktop\School\2024 Fall\Comp organization\Final Project\NeuralPi\Source\Eq4Band.cpp(74,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data

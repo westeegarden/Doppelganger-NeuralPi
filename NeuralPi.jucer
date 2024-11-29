@@ -10,6 +10,9 @@
       <FILE id="wKou0l" name="BluesJr.json" compile="0" resource="1" file="models/BluesJr.json"/>
       <FILE id="hQ0vq1" name="BluesJR_FullD.json" compile="0" resource="1"
             file="models/BluesJR_FullD.json"/>
+      <FILE id="oK1H9e" name="doppelgangerLogo4.PNG" compile="0" resource="1"
+            file="resources/doppelgangerLogo4.PNG"/>
+      <FILE id="gKot7x" name="guiUpdate.JPG" compile="0" resource="1" file="resources/guiUpdate.JPG"/>
       <FILE id="YURBrY" name="HT40_Overdrive.json" compile="0" resource="1"
             file="models/HT40_Overdrive.json"/>
       <FILE id="JubKNX" name="npi_background.jpg" compile="0" resource="1"
@@ -24,6 +27,8 @@
       <FILE id="gT1tOY" name="Delay.h" compile="0" resource="0" file="Source/Delay.h"/>
       <FILE id="s1HQuK" name="Eq4Band.cpp" compile="1" resource="0" file="Source/Eq4Band.cpp"/>
       <FILE id="xtLEtv" name="Eq4Band.h" compile="0" resource="0" file="Source/Eq4Band.h"/>
+      <FILE id="KwCU5B" name="PiPedalLookAndFeel.h" compile="0" resource="0"
+            file="Source/PiPedalLookAndFeel.h"/>
       <FILE id="hNjQV9" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="BweFTe" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
@@ -79,9 +84,9 @@
     </LINUX_MAKE>
     <VS2019 targetFolder="Builds/VisualStudio2019">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="NeuralPi" headerPath="C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\json\include&#10;C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\RTNeural&#10;C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\RTNeural\modules\xsimd\include"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="NeuralPi" headerPath="~\modules\json\include&#10;~\modules\RTNeural&#10;~\modules\RTNeural\modules\xsimd\include"
                        defines="USE_XSIMD=1"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="NeuralPi" headerPath="C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\json\include&#10;C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\RTNeural&#10;C:\Users\tseng\Personal\mlamsk\NeuralPi\modules\RTNeural\modules\xsimd\include"
+        <CONFIGURATION isDebug="0" name="Release" targetName="NeuralPi" headerPath="~\modules\json\include&#10;~\modules\RTNeural&#10;~\modules\RTNeural\modules\xsimd\include"
                        defines="USE_XSIMD=1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

@@ -13,7 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
 #include "AmpOSCReceiver.h"
-//#include "myLookAndFeel.h"
+#include "PiPedalLookAndFeel.h"
 #include <stdlib.h>
 
 //==============================================================================
@@ -50,8 +50,8 @@ public:
     String bassAddressPattern{ "/parameter/NeuralPi/Bass" };
     String midAddressPattern{ "/parameter/NeuralPi/Mid" };
     String trebleAddressPattern{ "/parameter/NeuralPi/Treble" };
-    String presenceAddressPattern{ "/parameter/NeuralPi/Presence" };
     String delayAddressPattern{ "/parameter/NeuralPi/Delay" };
+    String presenceAddressPattern{ "/parameter/NeuralPi/Presence" };
     String reverbAddressPattern{ "/parameter/NeuralPi/Reverb" };
 
     const String gainName{ "gain" };
@@ -69,12 +69,15 @@ public:
     // For the FileChooser to load json models and IR files
     std::unique_ptr<FileChooser> myChooser;
 
+    //Doppelganger logo image
+    Image logo = ImageCache::getFromMemory(BinaryData::doppelgangerLogo4_PNG, BinaryData::doppelgangerLogo4_PNGSize);
+
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     NeuralPiAudioProcessor& processor;
 
-    Image background = ImageCache::getFromMemory(BinaryData::npi_background_jpg, BinaryData::npi_background_jpgSize);
+    //Image background = ImageCache::getFromMemory(BinaryData::npi_background_jpg, BinaryData::npi_background_jpgSize);
 
     // Amp Widgets
     Slider ampGainKnob;
@@ -111,9 +114,11 @@ private:
     TextButton loadIR;
     ToggleButton irButton;
     ToggleButton lstmButton;
+    ToggleButton piConnect;
 
-    juce::LookAndFeel_V4 blueLookAndFeel;
-    juce::LookAndFeel_V4 redLookAndFeel;
+    //juce::LookAndFeel_V4 blueLookAndFeel;
+    //juce::LookAndFeel_V4 redLookAndFeel;
+    PiPedalLookAndFeel PiPedalLookAndFeel; 
     
     juce::String fname;
     virtual void buttonClicked(Button* button) override;
@@ -128,13 +133,13 @@ private:
     Label ampNameLabel{ {}, "Amp Name (no spaces): " };
     Label ampNameField{ {}, "NeuralPi" };
 
-    Label ipLabel{ {}, "Target IP Address: " };
+    Label ipLabel{ {}, "IP" };
     Label ipField{ {}, "127.0.0.1" };
 
-    Label outPortNumberLabel{ {}, "Outgoing OSC Port: " };
+    Label outPortNumberLabel{ {}, "OSC Out" };
     Label outPortNumberField{ {}, "24024" };
 
-    Label inPortNumberLabel{ {}, "Incoming OSC Port: " };
+    Label inPortNumberLabel{ {}, "OSC In" };
     Label inPortNumberField{ {}, "25024" };
 
     Label gainLabel{ {}, "Gain" };
